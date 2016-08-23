@@ -2,6 +2,12 @@
 
 Create a simple content management system that allows users to add, delete, or update books.  Books entered in the system can be viewed in a listing, or searched for using basic searches (title, author, genre).
 
+## Instructions:
+ * Clone the projct from github
+ * NPM Install
+ * Create lgbookstore database in Postgres SQL
+ * Run the schema SQL file in the database by typing ```psql lgbookstore < schema.sql```
+
 ## Context
 
 Creating this web application will provide exposure to:
