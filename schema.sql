@@ -64,145 +64,73 @@ VALUES ('Economics'),
 --- Join Tables Start Here
 
 INSERT INTO book_authors
-SELECT
-  books.id, authors.id
-FROM
-  books
-CROSS JOIN
-  authors
-WHERE
-  books.title = 'The Great Gatsby'
-AND
-  authors.name = 'F. Scott Fitzgerald';
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Great Gatsby'
+  AND authors.name = 'F. Scott Fitzgerald';
 
 INSERT INTO book_authors
-SELECT
-  books.id, authors.id
-FROM
-  books
-CROSS JOIN
-  authors
-WHERE
-  books.title = 'Wealth of Nations'
-AND
-  authors.name = 'Adam Smith';
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors 
+  WHERE books.title = 'Wealth of Nations'
+  AND authors.name = 'Adam Smith';
 
 INSERT INTO book_authors
-SELECT
-  books.id, authors.id
-FROM
-  books
-CROSS JOIN
-  authors
-WHERE
-  books.title = 'The Alchemist'
-AND
-  authors.name = 'Paulo Coehlo';
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Alchemist'
+  AND authors.name = 'Paulo Coehlo';
 
 INSERT INTO book_authors
-SELECT
-  books.id, authors.id
-FROM
-  books
-CROSS JOIN
-  authors
-WHERE
-  books.title = 'Gone With the Wind'
-AND
-  authors.name = 'Margaret Mitchell';
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'Gone With the Wind'
+  AND authors.name = 'Margaret Mitchell';
 
 INSERT INTO book_authors
-SELECT
-  books.id, authors.id
-FROM
-  books
-CROSS JOIN
-  authors
-WHERE
-  books.title = 'The Hobbit'
-AND
-  authors.name = 'J. R. R. Tolkien';
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Hobbit'
+  AND authors.name = 'J. R. R. Tolkien';
 
 INSERT INTO book_authors
-SELECT
-  books.id, authors.id
-FROM
-  books
-CROSS JOIN
-  authors
-WHERE
-  books.title = 'The Lord of the Rings'
-AND
-  authors.name = 'J. R. R. Tolkien';
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Lord of the Rings'
+  AND authors.name = 'J. R. R. Tolkien';
 
 INSERT INTO book_genres
-SELECT
-  books.id, genres.id
-FROM
-  books
-CROSS JOIN
-  genres
-WHERE
-  books.title = 'Wealth of Nations'
-AND
-  genres.name = 'Economics';
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Wealth of Nations'
+  AND genres.name = 'Economics';
 
 INSERT INTO book_genres
-SELECT
-  books.id, genres.id
-FROM
-  books
-CROSS JOIN
-  genres
-WHERE
-  books.title = 'The Great Gatsby'
-AND
-  genres.name = 'Historical Drama';
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Great Gatsby'
+  AND genres.name = 'Historical Drama';
 
 INSERT INTO book_genres
-SELECT
-  books.id, genres.id
-FROM
-  books
-CROSS JOIN
-  genres
-WHERE
-  books.title = 'Gone With the Wind'
-AND
-  genres.name = 'Historical Drama';
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Gone With the Wind'
+  AND genres.name = 'Historical Drama';
 
 INSERT INTO book_genres
-SELECT
-  books.id, genres.id
-FROM
-  books
-CROSS JOIN
-  genres
-WHERE
-  books.title = 'The Alchemist'
-AND
-  genres.name = 'Fantasy';
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Alchemist'
+  AND genres.name = 'Fantasy';
 
 INSERT INTO book_genres
-SELECT
-  books.id, genres.id
-FROM
-  books
-CROSS JOIN
-  genres
-WHERE
-  books.title = 'The Hobbit'
-AND
-  genres.name = 'Fantasy';
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Hobbit'
+  AND genres.name = 'Fantasy';
 
 INSERT INTO book_genres
-SELECT
-  books.id, genres.id
-FROM
-  books
-CROSS JOIN
-  genres
-WHERE
-  books.title = 'The Lord of the Rings'
-AND
-  genres.name = 'Fantasy';
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Lord of the Rings'
+  AND genres.name = 'Fantasy';

@@ -5,7 +5,7 @@ Create a simple content management system that allows users to add, delete, or u
 ## Instructions:
  * Clone the project from github
  * NPM Install
- * Create lgbookstore database in Postgres SQL
+ * Create lgbookstore database in Postgres SQL ```psql createdb lgbookstore```
  * Run the schema SQL file in the database by typing ```psql lgbookstore < schema.sql```
 
 ## Context
