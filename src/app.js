@@ -6,6 +6,13 @@ import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 
 const routes = require('./routes/index')
+<<<<<<< 9d10ae1cac4834e1c27421746eef04503f92ebe1
+=======
+const users = require('./routes/users')
+const search = require('./routes/search')
+const create = require('./routes/create')
+const about = require('./routes/about')
+>>>>>>> Created routes with views2
 
 const app = express()
 
@@ -22,6 +29,13 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', routes)
+<<<<<<< 9d10ae1cac4834e1c27421746eef04503f92ebe1
+=======
+app.use('/users', users)
+app.use('/search', search)
+app.use('/create', create)
+app.use('/about', about)
+>>>>>>> Created routes with views2
 
 // catch 404 and forward to error handler
 app.use( (req, res, next) => {
