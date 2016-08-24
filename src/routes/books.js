@@ -4,29 +4,28 @@ const router = express.Router()
 
 
 //GET books page
-// router.route('/', (req, res, next) => {
-  router.get('/', (req, res, next) => {
-    res.render('index')
-    .catch(renderError(res))
-  })
+router.get('/', (request, response, next) => {
+  res.render('index')
+})
 
-  router.get('/:id', (req, res, next) => {
-    res.render('index').catch(renderError(res))
-  })
+router.get('/create', (request, response, next) => {
+  res.render('create')
+})
 
-  router.get('/create', (req, res, next) => {
-    res.render('create').catch(renderError(res))
-  })
+router.get('/:id', (request, response, next) => {
+  res.render('index')
+})
 
-  router.post('/', (req, res, next) => {
-  })
+router.post('/', (request, response, next) => {
+  response.send('Sending to POSTMAN')
+})
 
-  router.put('/:id', (req, res, next) => {
-  })
+router.put('/:id', (request, response, next) => {
+})
 
-  router.delete('/:id', (req, res, next) => {
-  });
-// });
+router.delete('/:id', (request, response, next) => {
+});
+
 
 
 module.exports = router
