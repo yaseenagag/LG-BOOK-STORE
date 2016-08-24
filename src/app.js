@@ -6,6 +6,9 @@ import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 
 const routes = require('./routes/index')
+const search = require('./routes/search')
+const books = require('./routes/books')
+const about = require('./routes/about')
 
 const app = express()
 
@@ -22,6 +25,10 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', routes)
+app.use('/search', search)
+app.use('/books', books)
+app.use('/about', about)
+
 
 // catch 404 and forward to error handler
 app.use( (req, res, next) => {
