@@ -6,9 +6,12 @@ import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 
 const routes = require('./routes/index')
+<<<<<<< 6ffe8b52a96a53d58a895e0688c0f3a57649cb89
 <<<<<<< 9d10ae1cac4834e1c27421746eef04503f92ebe1
 =======
 const users = require('./routes/users')
+=======
+>>>>>>> hopefully resolved merge conflict, deleted users route
 const search = require('./routes/search')
 const create = require('./routes/create')
 const about = require('./routes/about')
@@ -29,9 +32,12 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', routes)
+<<<<<<< 6ffe8b52a96a53d58a895e0688c0f3a57649cb89
 <<<<<<< 9d10ae1cac4834e1c27421746eef04503f92ebe1
 =======
 app.use('/users', users)
+=======
+>>>>>>> hopefully resolved merge conflict, deleted users route
 app.use('/search', search)
 app.use('/create', create)
 app.use('/about', about)
