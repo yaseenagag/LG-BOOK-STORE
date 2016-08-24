@@ -5,15 +5,15 @@ const router = express.Router()
 
 //GET books page
 router.get('/', (request, response, next) => {
-  res.render('index')
+  response.render('index')
 })
 
 router.get('/create', (request, response, next) => {
-  res.render('create')
+  response.render('create')
 })
 
 router.get('/:id', (request, response, next) => {
-  res.render('index')
+  response.render('index')
 })
 
 router.post('/', (request, response, next) => {
