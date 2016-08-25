@@ -17,8 +17,8 @@ html
           a.nav-link(href='/books/create') Create
         li.nav-item
           a.nav-link(href='/about') About
-      form.form-inline.pull-xs-right
-        input.form-control(type='text', placeholder='Search...')
+      form.form-inline.pull-xs-right(method='get' action='/search')
+        input.form-control(type='search' name='search_query' placeholder='Search...')
         button.btn.btn-outline-success(type='submit') Search
 
     block content

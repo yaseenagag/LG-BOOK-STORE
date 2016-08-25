@@ -11,7 +11,6 @@ router.get('/', (request, response, next) => {
   db.getAllBooks(page).then( books => {
     db.end()
     response.render('index', {
-      title: 'Books Listing',
       page: page,
       books : books
      })

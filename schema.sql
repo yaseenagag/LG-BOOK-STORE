@@ -40,7 +40,7 @@ INSERT INTO books (title, fiction)
 VALUES ('Gone With the Wind', true),
 ('Wealth of Nations', false),
 ('The Alchemist', true),
-('The Great Gatsby', false),
+('The Great Gatsby', true),
 ('The Hobbit', true),
 ('The Lord of the Rings', true),
 ('The Ethical Slut', false),
@@ -126,7 +126,7 @@ INSERT INTO book_authors
 INSERT INTO book_authors
   SELECT books.id, authors.id FROM books
   CROSS JOIN authors
-  WHERE books.title = 'The Tale of Two Cities'
+  WHERE books.title = 'A Tale of Two Cities'
   AND authors.name = 'Charles Dickens';
 
 INSERT INTO book_authors
@@ -144,7 +144,7 @@ INSERT INTO book_authors
 INSERT INTO book_authors
   SELECT books.id, authors.id FROM books
   CROSS JOIN authors
-  WHERE books.title = 'The Hound of Baskervilles'
+  WHERE books.title = 'The Hound of the Baskervilles'
   AND authors.name = 'Arthur Conan Doyle';
 
 INSERT INTO book_authors
@@ -157,7 +157,7 @@ INSERT INTO book_authors
   SELECT books.id, authors.id FROM books
   CROSS JOIN authors
   WHERE books.title = 'The Ethical Slut'
-  AND authors.name = 'Dossie Easton';
+  AND authors.name = 'Dossie Eaton';
 
 INSERT INTO book_authors
   SELECT books.id, authors.id FROM books
@@ -270,7 +270,7 @@ INSERT INTO book_genres
 INSERT INTO book_genres
   SELECT books.id, genres.id FROM books
   CROSS JOIN genres
-  WHERE books.title = 'Tale of Two Cities'
+  WHERE books.title = 'A Tale of Two Cities'
   AND genres.name = 'Historical Drama';
 
 INSERT INTO book_genres

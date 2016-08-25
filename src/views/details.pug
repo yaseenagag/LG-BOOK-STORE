@@ -2,5 +2,14 @@ extends layout
 
 block content
   h1= book.title
-  Book.author Author
-  Book.genre Genre
+  h3= book.fiction ? 'Fiction' : 'Non-Fiction'
+
+  h2 Authors
+  ol
+    for author in book.authors
+      li= author.name
+
+  h2 Genres
+  ol
+    for genre in book.genres
+      li= genre.name
