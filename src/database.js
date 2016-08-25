@@ -19,7 +19,14 @@ const getAllBooks = (page=1, size=10) => {
   const offset = (page-1) * size;
   return db.any('SELECT * FROM books LIMIT $2 OFFSET $1', [offset, size])
 }
+const getBookById = (id) => {
+  const sql = `
+    SELECT *
+    FROM books
+    WHERE id = $1`
+  return db.one(sql, [id])
+}
 
 const end = () => pgp.end()
 
-export default { getAllBooks, end }
+export default { getAllBooks, getBookById, end }

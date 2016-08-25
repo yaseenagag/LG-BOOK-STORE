@@ -260,3 +260,45 @@ INSERT INTO book_genres
   CROSS JOIN genres
   WHERE books.title = 'Tartuffe'
   AND genres.name = 'Historical Drama';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'No Mud No Lotus'
+  AND genres.name = 'Self Help';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Tale of Two Cities'
+  AND genres.name = 'Historical Drama';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Brave New World'
+  AND genres.name = 'Dystopian Fiction';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Anna Karenina'
+  AND genres.name = 'Historical Drama';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Shane'
+  AND genres.name = 'Young Adult';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Hound of the Baskervilles'
+  AND genres.name = 'Young Adult';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Tartuffe'
+  AND genres.name = 'Young Adult';

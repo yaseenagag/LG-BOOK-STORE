@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+import db from '../database'
 
 
 //GET books page
@@ -13,7 +14,12 @@ router.get('/create', (request, response, next) => {
 })
 
 router.get('/:id', (request, response, next) => {
-  response.render('index')
+  db.getBookById(request.params.id).then(book => {
+    db.end()
+    response.render('details', {
+      book: book
+    })
+  })
 })
 
 router.post('/', (request, response, next) => {

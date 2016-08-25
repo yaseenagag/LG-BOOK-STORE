@@ -6,7 +6,9 @@ block content
 
   ul
     for book in books
-      li= book.title
+      a(href='/books/' + book.id)
+        li= book.title 
+
 
 
   .clear-fix
