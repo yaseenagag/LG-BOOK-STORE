@@ -15,7 +15,7 @@ block content
       li= genre.name
 
   .clearfix
-    form.form-horizontal(method='delete', action='/books/'+book.id)
+    form.form-horizontal(method='delete', id="delete-form" action='/books/'+book.id)
       fieldset
         div
           input.form-control(type='submit' value="Delete Book")

@@ -258,9 +258,7 @@ const searchForBooks = (options) => {
   return db.any(sql, variables)
 }
 const deleteBook = (bookId) => {
-  const sql = `
-  DELETE FROM books
-  WHERE books.id = $1`
+  const sql = `DELETE FROM books WHERE books.id = $1`
   return db.one(sql, [bookId])
 }
 

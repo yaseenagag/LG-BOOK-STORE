@@ -34,15 +34,8 @@ router.put('/:id', (request, response, next) => {
 })
 
 router.delete('/:id', (request, response, next) => {
-  console.log('here')
-  db.deleteBook(request.query.id)
-  console.log("query", request.query)
-  console.log("params",request.params)
-  console.log("body",request.body)
-  console.log("query.id",request.query.id)
-  console.log("params.id",request.params.id)
-  console.log("body.id",request.body.id)
-    .then( result => response.redirect( `/` ) )
+  db.deleteBook( request.params.id )
+    .then( result => response.send({}) )
     .catch( error => response.send({ error, message: error.message }) )
 });
 
