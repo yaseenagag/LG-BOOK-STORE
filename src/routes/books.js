@@ -15,10 +15,14 @@ router.get('/create', (request, response, next) => {
 })
 
 router.get('/update/:id', (request, response, next) => {
-  db.getAllGenres()
-    .then( genres => response.render( 'update', { genres } ))
-    .then( result => response.send({}) )
-    .catch( error => response.send({ error, message: error.message }))
+  return Promise.all([
+    db.getBookAndAuthorsAndGenresByBookId( request.params.id ),
+    db.getAllGenres()
+  ])
+  .then( results => {
+    response.render( 'update', { book: results[ 0 ], genres: results[ 1 ] } )
+  })
+  .catch( error => response.send({ error, message: error.message }))
 })
 
 
@@ -38,8 +42,12 @@ router.post('/', (request, response, next) => {
     .catch( error => response.send({ error, message: error.message }) )
 })
 
-router.put('/:id', (request, response, next) => {
+router.post('/:id', (request, response, next) => {
+  const book = Object.assign({id: request.params.id}, request.body)
 
+  db.updateBook( book )
+    .then( id => response.redirect( `/books/${id}`) )
+    .catch( error => response.send({ error, message: error.message }))
 })
 
 router.delete('/:id', (request, response, next) => {

@@ -12,7 +12,7 @@ router.get('/', (request, response, next) => {
     db.end()
     response.render('index', {
       page: page,
-      books : books
+      books: books
      })
   }).catch( error => {
     db.end()
