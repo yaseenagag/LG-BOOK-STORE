@@ -257,7 +257,14 @@ const searchForBooks = (options) => {
   console.log('SQL --->', sql, variables)
   return db.any(sql, variables)
 }
+const deleteBook = (bookId) => {
+  const sql = `
+  DELETE FROM books
+  WHERE books.id = $1`
+  return db.one(sql, [bookId])
+}
+
 
 const end = () => pgp.end()
 
-export default { getAllBooks, getBookById, getAuthorsAndGenresForBooks, getBookAuthors, getBookGenres, getBookAndAuthorsAndGenresByBookId, createBook, createAuthor,joinGenresWithBook, joinAuthorsWithBook, getAllGenres, searchForBooks, end }
+export default { getAllBooks, getBookById, getAuthorsAndGenresForBooks, getBookAuthors, getBookGenres, getBookAndAuthorsAndGenresByBookId, createBook, createAuthor, joinGenresWithBook, joinAuthorsWithBook, getAllGenres, searchForBooks, deleteBook, end }

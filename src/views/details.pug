@@ -13,3 +13,9 @@ block content
   ol
     for genre in book.genres
       li= genre.name
+
+  .clearfix
+    form.form-horizontal(method='delete', action='/books/'+book.id)
+      fieldset
+        div
+          input.form-control(type='submit' value="Delete Book")
