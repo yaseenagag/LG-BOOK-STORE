@@ -1,5 +1,36 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Books Listing
+  p Welcome to the Library
+
+  .clearfix
+    if page > 1
+      a(href="/?page="+(page-1)) Previous
+    a.pull-right(href="/?page="+(page+1)) Next
+
+  table.table.table-striped
+    thead
+      tr
+        th Title
+        th Authors
+        th Genres
+    tbody
+      for book in books
+        tr
+          td
+            a(href="/books/"+book.id)= book.title
+          td
+            for author in book.authors
+              a(href="/authors/"+author.id)= author.name
+              span &nbsp;
+          td
+            for genre in book.genres
+              a(href="/genres/"+genre.id)= genre.name
+              span &nbsp;
+
+
+  .clear-fix
+  if page > 1
+    a(href='/?page='+(page -1)) Previous
+  a.pull-right(href='/?page='+(page +1)) Next

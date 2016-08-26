@@ -5,6 +5,9 @@ import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 
+const database = require('./database')
+const pgp = database.pgp;
+
 const routes = require('./routes/index')
 const search = require('./routes/search')
 const books = require('./routes/books')

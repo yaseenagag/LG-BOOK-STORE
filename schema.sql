@@ -40,16 +40,37 @@ INSERT INTO books (title, fiction)
 VALUES ('Gone With the Wind', true),
 ('Wealth of Nations', false),
 ('The Alchemist', true),
-('The Great Gatsby', false),
+('The Great Gatsby', true),
 ('The Hobbit', true),
-('The Lord of the Rings', true);
+('The Lord of the Rings', true),
+('The Ethical Slut', false),
+('1984', true),
+('Anna Karenina', true),
+('A Tale of Two Cities', true),
+('No Mud No Lotus', false),
+('The Odyssey', true),
+('Tartuffe', true),
+('Shane', true),
+('Brave New World', true),
+('The Hound of the Baskervilles', true);
 
 INSERT INTO authors (name)
 VALUES ('Adam Smith'),
 ('Paulo Coehlo'),
 ('F. Scott Fitzgerald'),
 ('J. R. R. Tolkien'),
-('Margaret Mitchell');
+('Margaret Mitchell'),
+('Dossie Eaton'),
+('Janet W. Hardy'),
+('George Orwell'),
+('Leo Tolstoy'),
+('Homer'),
+('Moliere'),
+('Aldous Huxley'),
+('Jack Schaefer'),
+('Arthur Conan Doyle'),
+('Thich Nhat Hanh'),
+('Charles Dickens');
 
 INSERT INTO genres (name)
 VALUES ('Economics'),
@@ -59,7 +80,10 @@ VALUES ('Economics'),
 ('Historical Drama'),
 ('Romance'),
 ('Horror'),
-('Satire');
+('Satire'),
+('Mystery'),
+('Dystopian Fiction'),
+('Self Help');
 
 --- Join Tables Start Here
 
@@ -71,7 +95,7 @@ INSERT INTO book_authors
 
 INSERT INTO book_authors
   SELECT books.id, authors.id FROM books
-  CROSS JOIN authors 
+  CROSS JOIN authors
   WHERE books.title = 'Wealth of Nations'
   AND authors.name = 'Adam Smith';
 
@@ -98,6 +122,72 @@ INSERT INTO book_authors
   CROSS JOIN authors
   WHERE books.title = 'The Lord of the Rings'
   AND authors.name = 'J. R. R. Tolkien';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'A Tale of Two Cities'
+  AND authors.name = 'Charles Dickens';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Odyssey'
+  AND authors.name = 'Homer';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'Tartuffe'
+  AND authors.name = 'Moliere';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Hound of the Baskervilles'
+  AND authors.name = 'Arthur Conan Doyle';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Ethical Slut'
+  AND authors.name = 'Janet W. Hardy';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'The Ethical Slut'
+  AND authors.name = 'Dossie Eaton';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'Brave New World'
+  AND authors.name = 'Aldous Huxley';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'No Mud No Lotus'
+  AND authors.name = 'Thich Nhat Hanh';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'Shane'
+  AND authors.name = 'Jack Schaefer';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = '1984'
+  AND authors.name = 'George Orwell';
+
+INSERT INTO book_authors
+  SELECT books.id, authors.id FROM books
+  CROSS JOIN authors
+  WHERE books.title = 'Anna Karenina'
+  AND authors.name = 'Leo Tolstoy';
 
 INSERT INTO book_genres
   SELECT books.id, genres.id FROM books
@@ -134,3 +224,81 @@ INSERT INTO book_genres
   CROSS JOIN genres
   WHERE books.title = 'The Lord of the Rings'
   AND genres.name = 'Fantasy';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Hound of the Baskervilles'
+  AND genres.name = 'Mystery';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = '1984'
+  AND genres.name = 'Dystopian Fiction';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Ethical Slut'
+  AND genres.name = 'Self Help';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Odyssey'
+  AND genres.name = 'Fantasy';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Odyssey'
+  AND genres.name = 'Historical Drama';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Tartuffe'
+  AND genres.name = 'Historical Drama';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'No Mud No Lotus'
+  AND genres.name = 'Self Help';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'A Tale of Two Cities'
+  AND genres.name = 'Historical Drama';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Brave New World'
+  AND genres.name = 'Dystopian Fiction';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Anna Karenina'
+  AND genres.name = 'Historical Drama';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Shane'
+  AND genres.name = 'Young Adult';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'The Hound of the Baskervilles'
+  AND genres.name = 'Young Adult';
+
+INSERT INTO book_genres
+  SELECT books.id, genres.id FROM books
+  CROSS JOIN genres
+  WHERE books.title = 'Tartuffe'
+  AND genres.name = 'Young Adult';
