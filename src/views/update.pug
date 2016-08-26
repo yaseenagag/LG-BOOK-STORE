@@ -4,40 +4,35 @@ block content
   .clearfix
   h1 Update Book
 
-  form.form-horizontal(method='put', action='/books')
+  form.form-horizontal(method='post', action=`/books/${book.id}`)
     fieldset
       legend Update Book
       .control-group
         label.control-label(for='title') Title
         .controls
-          input#title.input-large(name='title', type='text', placeholder='')
-      .control-group
-        label.control-label Author
-        .controls
-          input#author-1.input-large(name='authors[]', type='text', placeholder='')
-      .control-group
-        label.control-label Author
-        .controls
-          input#author-2.input-large(name='authors[]', type='text', placeholder='')
-      .control-group
-        label.control-label Author
-        .controls
-          input#author-3.input-large(name='authors[]', type='text', placeholder='')
+          input#title.input-large(name='title', type='text', value=`${book.title}`)
+
+      each author in book.authors
+        .control-group
+          label.control-label Author
+          .controls
+            input#author-1.input-large(name='authors[]', type='text', value=`${author.name}`)
+
       .control-group
         label.control-label(for='Fiction/Nonfiction')
         .controls
           label.radio(for='fiction-0')
-            input(type='radio', name='fiction', id='fiction-0', value='true', checked='checked')
+            input(type='radio', name='fiction', id='fiction-0', value='true', checked=book.fiction)
             |       Fiction
           label.radio(for='fiction-1')
-            input(type='radio', name='fiction', id='fiction-1', value='false')
+            input(type='radio', name='fiction', id='fiction-1', value='false', checked=!book.fiction)
             |       Non-Fiction
       .control-group
         label.control-label(for='genres') Genres
         .controls
           select#Genres.input-large(name='genres[]', multiple='multiple')
             each genre in genres
-              option(value=genre.id)= genre.name
+              option(value=genre.id, selected=( book.genres.find( g => g.name === genre.name ) ? true : false ))= genre.name
 
         div
           input.form-control(type='submit' value="Update Book")

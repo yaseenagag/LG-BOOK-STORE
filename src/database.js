@@ -151,30 +151,6 @@ const addAuthorsAndGenres = results => {
 }
 
 const respondWithBookId = results => results[ 2 ]
-//
-// const createBook = book => {
-//   return Promise.all([
-//     db.one( CREATE_BOOK_SQL, [ book.title, book.fiction ]),
-//     ...book.authors.filter( author => author.length > 0 )
-//       .map( author => createAuthor( author ) )
-//   ])
-//   .then( results => {
-//     const bookResult = results[ 0 ]
-//     const bookId = parseInt( bookResult.id )
-//
-//     const authors = results.slice( 1 )
-//     const authorIds = authors.map( author => author.id )
-//
-//     return Promise.all([
-//       joinAuthorsWithBook( authorIds, bookId ),
-//       joinGenresWithBook( book.genres, bookId ),
-//       new Promise( (resolve, reject) => resolve( bookId ) )
-//     ])
-//   })
-//   .then( results => {
-//     return results[ 2 ]
-//   })
-// }
 
 const createAuthor = name => {
   const sql = `
@@ -262,6 +238,13 @@ const deleteBook = (bookId) => {
   return db.one(sql, [bookId])
 }
 
+const UPDATE_BOOK_SQL = 'UPDATE books SET title=$1, fiction=$2 WHERE id=$3 RETURNING id'
+
+const updateBook = book => {
+  return db.any( UPDATE_BOOK_SQL, [book.title, book.fiction, book.id] )
+    .then( result => result[0].id )
+}
+
 // const UPDATE_BOOK_SQL = `UPDATE books SET title = $1, fiction = $2 WHERE books.id = $3 RETURNING *`
 // const UPDATE_AUTHOR_SQL = `UPDATE authors SET name = $1 WHERE authors.id = $2 RETURNING *`
 //
@@ -282,4 +265,4 @@ const deleteBook = (bookId) => {
 
 const end = () => pgp.end()
 
-export default { getAllBooks, getBookById, getAuthorsAndGenresForBooks, getBookAuthors, getBookGenres, getBookAndAuthorsAndGenresByBookId, createBook, createAuthor, joinGenresWithBook, joinAuthorsWithBook, getAllGenres, searchForBooks, deleteBook, end }
+export default { getAllBooks, getBookById, getAuthorsAndGenresForBooks, getBookAuthors, getBookGenres, getBookAndAuthorsAndGenresByBookId, createBook, createAuthor, joinGenresWithBook, joinAuthorsWithBook, getAllGenres, searchForBooks, deleteBook, end, updateBook }
