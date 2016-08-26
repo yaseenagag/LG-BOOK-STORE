@@ -14,6 +14,14 @@ router.get('/create', (request, response, next) => {
     .catch( error => response.send({ error, message: error.message }))
 })
 
+router.get('/update/:id', (request, response, next) => {
+  db.getAllGenres()
+    .then( genres => response.render( 'update', { genres } ))
+    .then( result => response.send({}) )
+    .catch( error => response.send({ error, message: error.message }))
+})
+
+
 router.get('/:id', (request, response, next) => {
   db.getBookAndAuthorsAndGenresByBookId( request.params.id )
     .then( book => {
@@ -31,6 +39,7 @@ router.post('/', (request, response, next) => {
 })
 
 router.put('/:id', (request, response, next) => {
+
 })
 
 router.delete('/:id', (request, response, next) => {
