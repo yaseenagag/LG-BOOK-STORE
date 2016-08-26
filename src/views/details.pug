@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  .clearfix
   h1= book.title
   h3= book.fiction ? 'Fiction' : 'Non-Fiction'
 
@@ -19,3 +20,9 @@ block content
       fieldset
         div
           input.form-control(type='submit' value="Delete Book")
+
+  .clearfix
+    form.form-horizontal(method='get', id="update-form" action='/books/update/'+book.id)
+      fieldset
+        div
+          input.form-control(type='submit' value="Update Book")

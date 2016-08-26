@@ -1,11 +1,12 @@
 doctype html
 html
   head
-    title= title
+    title Bookstore
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
     script(src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous")
     script(src="/javascripts/delete_book.js")
+    script(src="/javascripts/update_book.js")
   body
     nav
       ul.nav.navbar-nav
@@ -19,7 +20,7 @@ html
           a.nav-link(href='/books/create') Create
         li.nav-item
           a.nav-link(href='/about') About
-      form.form-inline.pull-xs-right(method='get' action='/search')
+      form.form-inline.pull-right(method='get' action='/search')
         input.form-control(type='search' name='search_query' placeholder='Search...')
         button.btn.btn-outline-success(type='submit') Search
 

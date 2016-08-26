@@ -2,11 +2,11 @@ extends layout
 
 block content
   .clearfix
-  h1 Create New Book
+  h1 Update Book
 
-  form.form-horizontal(method='post', action='/books')
+  form.form-horizontal(method='put', action='/books')
     fieldset
-      legend Create New Book
+      legend Update Book
       .control-group
         label.control-label(for='title') Title
         .controls
@@ -40,4 +40,4 @@ block content
               option(value=genre.id)= genre.name
 
         div
-          input.form-control(type='submit' value="Create Book")
+          input.form-control(type='submit' value="Update Book")
