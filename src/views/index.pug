@@ -1,13 +1,15 @@
 extends layout
 
 block content
+  .clearfix
   h1 Books Listing
   p Welcome to the Library
 
   .clearfix
     if page > 1
       a(href="/?page="+(page-1)) Previous
-    a.pull-right(href="/?page="+(page+1)) Next
+    if page < 4
+      a.pull-right(href="/?page="+(page+1)) Next
 
   table.table.table-striped
     thead
@@ -22,15 +24,14 @@ block content
             a(href="/books/"+book.id)= book.title
           td
             for author in book.authors
-              a(href="/authors/"+author.id)= author.name
-              span &nbsp;
+              p= author.name
           td
             for genre in book.genres
-              a(href="/genres/"+genre.id)= genre.name
-              span &nbsp;
+              p= genre.name
 
 
   .clear-fix
   if page > 1
     a(href='/?page='+(page -1)) Previous
-  a.pull-right(href='/?page='+(page +1)) Next
+  if page < 4
+    a.pull-right(href='/?page='+(page +1)) Next
