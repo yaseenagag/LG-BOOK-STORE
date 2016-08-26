@@ -245,24 +245,6 @@ const updateBook = book => {
     .then( result => result[0].id )
 }
 
-// const UPDATE_BOOK_SQL = `UPDATE books SET title = $1, fiction = $2 WHERE books.id = $3 RETURNING *`
-// const UPDATE_AUTHOR_SQL = `UPDATE authors SET name = $1 WHERE authors.id = $2 RETURNING *`
-//
-// const updateAuthor = ( name, id ) => {
-//   return db.one( UPDATE_AUTHOR_SQL, [ name, id ])
-// }
-// //
-// const updateBook = book => {
-//   return Promise.all([
-//     db.one( UPDATE_AUTHOR_SQL, [ book.title, book.fiction, book.id ]),
-//     ...book.authors.filter( author => author.length > 0)
-//       .map( author => updateAuthor( author) )
-//   ])
-//   .then( results => {
-//     const result[0]
-//   })
-// }
-
 const end = () => pgp.end()
 
 export default { getAllBooks, getBookById, getAuthorsAndGenresForBooks, getBookAuthors, getBookGenres, getBookAndAuthorsAndGenresByBookId, createBook, createAuthor, joinGenresWithBook, joinAuthorsWithBook, getAllGenres, searchForBooks, deleteBook, end, updateBook }
